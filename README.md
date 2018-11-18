@@ -6,7 +6,7 @@ QuikEdit is a GUI based text editor built on Tkinter, a framework in python. It 
 
 To run QuikEdit, first install the requirements mentioned in the txt file.
 
-After installing the required software,
+After installing the required modules, run
 ```
 python quikedit.py
 ```
