@@ -1,0 +1,81 @@
+Tkinter quick docs
+
+from tkinter import *
+
+The window has to be created using Tk()
+root=Tk()
+....
+root.mainloop()
+
+Using labels
+mylabel=Label(root,text="Hello world")
+mylabel.pack() puts it inside the window.
+
+Frames are used to partition the screen
+topframe=Frame(root)
+topframe.pack()
+botframe=Frame(root)
+botframe.pack(side=BOTTOM)
+
+button1=Button(topframe,text="TEXTTT",fg="red",bg="blue")
+button1.pack()
+
+button1.pack(fill=X)   or Y If window extends, the frame also extends
+
+Entry:
+entry1=Entry(root)
+
+GRID layout
+label.grid(row=1,column=0)        used instead of pack
+
+Checkbox
+c=Checkbutton(root,text="Logged in?")
+c.grid(columnspan=2)
+
+Functions:
+but=Button(command=printhello)
+
+def printhello:
+  print("Hello world")
+
+Binding functions and widgets using bind()
+* create a widget
+*pass event as a parameter to the function use
+widget.bind("<Button-1>",command=fun_name)
+
+Classes:
+class but:
+  def __init__(self,master):
+    frame=Frame(master)
+    frame.pack()
+    self.printbutton=Button(framae,text="MESSAGE",command=self.fun)
+    self.printbutton.pack(side=LEFT)
+
+Creating menu bar
+menu=Menu(root)                ----> Main menu bar
+root.config(menu=menu)
+
+All buttons are created on the menu bar
+submenu=Menu(menu)
+menu.add_cascade(label="File",menu=submenu)
+submenu.add_command(label="name",command=fun_name)
+
+menu.add_cascade(label="Edit",menu=sub2)
+seb2=Menu(menu)
+sub2.add_command(label="label",command=xxx)
+sub2.add_separator()
+
+
+Status bar
+status=Label(root,text="TEXT",relief=sunken,anchor=W)
+status.pack(side=Bottom,fill=X)
+
+Message Boxes:
+import tkinter.messagebox
+
+tkinter.messagebox.showinfo("Title","DATA")   #Only shows the info
+answer=tkinter.messagebox.askquestion("title","question")
+
+Pics:
+photo=PhotoImage(file="img.png")
+label=Label(root,image=photo)
